@@ -22,7 +22,7 @@ async def on_message(message):
     if message.attachments:
         attachment = message.attachments[0]
         for file_type in convert.supported_formats:
-            if attachment.filename.endswith(file_type):
+            if attachment.filename.lower().endswith(file_type):
 
                 if convert.convert_image(attachment.url, output_directory, file_type):
                     await message.add_reaction("👍")
