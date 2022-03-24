@@ -10,7 +10,7 @@ supported_formats = [
 
 def convert_image(url, output_directory, file_type):
     try:
-        ffmpeg.input(url).output(output_directory + '/' + file_type + '.jpg').run()
+        ffmpeg.input(url).output(output_directory + '/' + url.split("/")[-1].split(".")[0] + '.jpg').run()
         return True
     except ffmpeg.Error as e:
         print(e.stderr)
