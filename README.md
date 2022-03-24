@@ -2,6 +2,13 @@
 
 A simple python discord bot for automatically uploading photos to photostream!
 
+## Requirements
+
+    * Python 3.6+
+    * discord.py
+    * ffmpeg
+    * dotenv-python
+
 ## Installation
 
     $ git clone https://github.com/MyUsernamee/Photographer-photostream.git
