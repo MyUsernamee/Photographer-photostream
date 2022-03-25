@@ -15,7 +15,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if message.author == bot.user or message.channel.name != "ai":
+    if message.author == bot.user or message.channel.name != "photos":
         return
 
     # Get the attached photo, if there is none, return
