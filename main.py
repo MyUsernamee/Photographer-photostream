@@ -31,8 +31,5 @@ async def on_message(message):
                     # Send the user a message in direct messages saying that the conversion failed
                     await message.author.send(f"Conversion failed for {attachment.url}")
                     return
-    else:
-        # Add a X emoji
-        await message.add_reaction("❌")
 
 bot.run(token)
