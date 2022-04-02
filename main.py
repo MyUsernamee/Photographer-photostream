@@ -20,16 +20,16 @@ async def on_message(message):
 
     # Get the attached photo, if there is none, return
     if message.attachments:
-        attachment = message.attachments[0]
-        for file_type in convert.supported_formats:
-            if attachment.filename.lower().endswith(file_type):
+        for attachment in message.attachments:
+            for file_type in convert.supported_formats:
+                if attachment.filename.lower().endswith(file_type):
 
-                if convert.convert_image(attachment.url, output_directory, file_type):
-                    await message.add_reaction("👍")
-                else:
-                    await message.add_reaction("👎")
-                    # Send the user a message in direct messages saying that the conversion failed
-                    await message.author.send(f"Conversion failed for {attachment.url}")
-                    return
+                    if convert.convert_image(attachment.url, output_directory, file_type):
+                        await message.add_reaction("👍")
+                    else:
+                        await message.add_reaction("👎")
+                        # Send the user a message in direct messages saying that the conversion failed
+                        await message.author.send(f"Conversion failed for {attachment.url}")
+                        return
 
 bot.run(token)
